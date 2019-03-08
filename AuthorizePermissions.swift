@@ -1,6 +1,6 @@
 //
 //  AuthorizationPermissions.swift
-//  CaiYunPlatform
+//  BiddingTool
 //
 //  Created by 木子 on 2019/2/22.
 //  Copyright © 2019 木子. All rights reserved.

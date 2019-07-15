@@ -17,12 +17,12 @@ import CoreLocation
 import CoreTelephony
 
 //MARK:通知权限
-final class AuthorizePermissions: NSObject {
+final class Permissions: NSObject {
 
     typealias authorizeCompletion = (Bool) -> Void
 
     //MARK:跳转系统设置
-    static func jumpToSystemPrivacySetting() {
+    private static func jumpToSystemPrivacySetting() {
         
         if let appSetting = URL(string: UIApplication.openSettingsURLString) {
             if #available(iOS 10.0, *) {
@@ -38,7 +38,7 @@ final class AuthorizePermissions: NSObject {
         let alertVC = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction.init(title: "取消", style: .cancel, handler: nil))
         alertVC.addAction(UIAlertAction.init(title: .openSetting, style: .destructive, handler: { (UIAlertAction) in
-            AuthorizePermissions.jumpToSystemPrivacySetting()
+            Permissions.jumpToSystemPrivacySetting()
         }))
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.window?.rootViewController?.present(alertVC, animated: true, completion: nil)
